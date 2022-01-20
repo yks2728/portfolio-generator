@@ -3,6 +3,8 @@ const generatePage = require('./src/page-template.js');
 const profileDataArgs = process.argv.slice(2);
 const [name, github] = profileDataArgs;
 
+const pageHTML = generatePage(name, github);
+
 // const printProfileData = (profileDataArr) => {
 //     // This...
 //     for (let i = 0; i <profileDataArr.length; i += 1) {
@@ -19,7 +21,7 @@ const [name, github] = profileDataArgs;
 
 
 
-fs.writeFile('./index.html', generatePage(name, github), err => {
+fs.writeFile('./index.html', pageHTML, err => {
     if (err) throw new Error (err);
 
     console.log('Portfolio complete! Check out index.html to see the output!');
